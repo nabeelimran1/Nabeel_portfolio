@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Syed Muhammad Nabeel · Growth & Lead Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#181229;
+    --ink-2:#221A38;
+    --paper:#F3EEFF;
+    --gold:#FFB454;
+    --coral:#4FD1C5;
+    --sage:#B9A6FF;
+    --line: rgba(243,238,255,0.14);
+  }
+  *{
+    box-sizing:border-box; margin:0; padding:0;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+    color-adjust:exact !important;
+  }
+  @media print{
+    html, body{ background:#181229 !important; }
+  }
+  html{
+    background:#181229 !important;
+    scroll-behavior:smooth;
+  }
+  body{
+    background:var(--ink) !important;
+    background-color:#181229 !important;
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--gold); color:var(--ink); }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em; }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:96px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5.5vw, 3.6rem);
+    line-height:1.06;
+    margin:18px 0 22px;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+  .hero p.sub{
+    max-width:52ch;
+    font-size:1.05rem;
+    color:rgba(243,238,255,0.72);
+    margin-bottom:36px;
+  }
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat-strip div{
+    padding:18px 0 4px;
+    border-right:1px solid var(--line);
+  }
+  .stat-strip div:last-child{ border-right:none; }
+  .stat-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.6rem;
+    color:var(--paper);
+    display:block;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:rgba(243,238,255,0.55);
+    text-transform:uppercase;
+    display:block;
+    margin-top:4px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:64px 0; border-bottom:1px solid var(--line); }
+  section.no-border{ border-bottom:none; }
+  .section-head{ margin-bottom:36px; }
+  .section-head h2{ font-size:1.6rem; margin-top:10px; }
+
+  /* ---------- BRIEF CARD (signature element) ---------- */
+  .brief{
+    border:1px solid var(--line);
+    background:var(--ink-2);
+    margin-bottom:20px;
+    position:relative;
+  }
+  .brief:last-child{ margin-bottom:0; }
+  .brief-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    padding:20px 24px;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .brief-head h3{ font-size:1.15rem; }
+  .brief-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--sage);
+    padding:5px 10px;
+    white-space:nowrap;
+  }
+  .brief-tag.gold{ background:var(--gold); }
+  .brief-tag.coral{ background:var(--coral); color:var(--paper); }
+  .brief-fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(243,238,255,0.55);
+    border-bottom:1px solid var(--line);
+  }
+  .brief-fields div{ padding:10px 24px; }
+  .brief-fields div:nth-child(odd){ border-right:1px solid var(--line); }
+  .brief-fields span{ display:block; color:var(--paper); font-family:'Inter',sans-serif; font-size:13.5px; margin-top:3px; }
+  .brief-body{ padding:22px 24px 26px; color:rgba(243,238,255,0.82); font-size:14.5px; }
+  .brief-body ul{ padding-left:18px; margin-top:8px; }
+  .brief-body li{ margin-bottom:6px; }
+
+  /* ---------- HOOK BODY CTA visual ---------- */
+  .hbc{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin-top:18px;
+    border:1px solid var(--line);
+  }
+  .hbc-row{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .hbc-row:last-child{ border-bottom:none; }
+  .hbc-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:16px;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+  }
+  .hbc-row:nth-child(1) .hbc-label{ background:var(--coral); color:var(--paper);}
+  .hbc-row:nth-child(2) .hbc-label{ background:rgba(243,238,255,0.85);}
+  .hbc-row:nth-child(3) .hbc-label{ background:var(--gold);}
+  .hbc-text{ padding:16px 18px; font-size:14px; color:rgba(243,238,255,0.85); }
+
+  /* ---------- VENTURES ---------- */
+  .ventures{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .venture{
+    border:1px solid var(--line);
+    padding:20px;
+    background:var(--ink-2);
+  }
+  .venture .stage{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--sage);
+    margin-bottom:10px;
+  }
+  .venture h3{ font-size:1.05rem; margin-bottom:8px; }
+  .venture p{ font-size:13.5px; color:rgba(243,238,255,0.72); }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:24px;
+  }
+  .skill-cat h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .skill-cat ul{ list-style:none; }
+  .skill-cat li{
+    font-size:14px;
+    color:rgba(243,238,255,0.85);
+    padding:5px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-cat li:last-child{ border-bottom:none; }
+
+  /* ---------- CONTACT ---------- */
+  footer{ padding:64px 0 80px; }
+  footer h2{ font-size:1.8rem; margin:14px 0 30px; max-width:16ch; }
+  .contact-list{ display:flex; flex-direction:column; gap:2px; }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-left .15s ease;
+  }
+  .contact-row:hover{ padding-left:8px; color:var(--gold); }
+  .contact-row:last-child{ border-bottom:1px solid var(--line); }
+  .contact-label{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(243,238,255,0.5); }
+  .contact-value{ font-family:'Space Grotesk', sans-serif; font-size:1.05rem; }
+  .foot-note{ margin-top:40px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:rgba(243,238,255,0.4); }
+
+  @media (max-width:600px){
+    header.hero{ padding:64px 0 48px; }
+    .stat-strip{ grid-template-columns:1fr; }
+    .stat-strip div{ border-right:none; border-bottom:1px solid var(--line); padding:14px 0;}
+    .stat-strip div:last-child{ border-bottom:none; }
+    .brief-fields{ grid-template-columns:1fr; }
+    .brief-fields div:nth-child(odd){ border-right:none; border-bottom:1px solid var(--line); }
+    .hbc-row{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body style="background-color:#181229;">
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Marketing &amp; Growth · Karachi</span>
+    <h1>I build lead pipelines, <em>not just posts.</em></h1>
+    <p class="sub">BBA Marketing graduate with hands on experience in outbound lead generation, social content strategy, and running parallel ventures from zero to launch. Comfortable owning a campaign end to end: research, outreach, content, and reporting.</p>
+
+    <div class="stat-strip">
+      <div>
+        <span class="stat-num">01</span>
+        <span class="stat-label">Lead Gen Internship · AETSM Soft</span>
+      </div>
+      <div>
+        <span class="stat-num">02</span>
+        <span class="stat-label">Client Strategy · Cookie House</span>
+      </div>
+      <div>
+        <span class="stat-num">03</span>
+        <span class="stat-label">Active Ventures Running</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head">
+      <span class="eyebrow">Experience</span>
+      <h2>Where I've worked</h2>
+    </div>
+
+    <div class="brief">
+      <div class="brief-head">
+        <h3>Lead Generation Intern</h3>
+        <span class="brief-tag gold">AETSM Soft</span>
+      </div>
+      <div class="brief-fields">
+        <div>Channel <span>LinkedIn, Instagram</span></div>
+        <div>Focus <span>Outbound Pipeline Building</span></div>
+      </div>
+      <div class="brief-body">
+        Ran outreach on LinkedIn and Instagram to build lead generation pipelines for B2B and B2C targets. Owned prospecting, first touch messaging, and pipeline tracking from list to handoff.
+        <ul>
+          <li>Built and maintained outreach lists across two platforms</li>
+          <li>Wrote and tested first touch messaging for response rate</li>
+          <li>Tracked leads through the pipeline to qualified handoff</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="brief">
+      <div class="brief-head">
+        <h3>Social Media Executive</h3>
+        <span class="brief-tag">@Af_byaleenasajjad</span>
+      </div>
+      <div class="brief-fields">
+        <div>Channel <span>Instagram</span></div>
+        <div>Focus <span>Page Management &amp; Content</span></div>
+      </div>
+      <div class="brief-body">
+        Managed social media presence and content execution for the page, handling day to day posting, engagement, and brand consistency.
+        <ul>
+          <li>Planned and scheduled content for consistent posting</li>
+          <li>Managed audience engagement and page activity</li>
+          <li>Maintained brand voice and visual consistency</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section id="case-study">
+    <div class="section-head">
+      <span class="eyebrow">Case Study</span>
+      <h2>Cookie House: 30 Day Content Strategy</h2>
+    </div>
+
+    <div class="brief">
+      <div class="brief-head">
+        <h3>Instagram Content Strategy</h3>
+        <span class="brief-tag coral">Academic Project</span>
+      </div>
+      <div class="brief-fields">
+        <div>Duration <span>30 Days</span></div>
+        <div>Framework <span>Hook / Body / CTA</span></div>
+      </div>
+      <div class="brief-body">
+        Designed a full 30 day Instagram content calendar for Cookie House using the Hook, Body, CTA structure: every post engineered to stop the scroll, deliver value, and drive one clear action.
+        <div class="hbc">
+          <div class="hbc-row">
+            <div class="hbc-label">Hook</div>
+            <div class="hbc-text">First 1 to 2 seconds designed to interrupt the scroll, a bold visual or line that creates curiosity or relatability.</div>
+          </div>
+          <div class="hbc-row">
+            <div class="hbc-label">Body</div>
+            <div class="hbc-text">The value delivery: product story, behind the scenes, or a reason to care, kept tight and visual first for Instagram's format.</div>
+          </div>
+          <div class="hbc-row">
+            <div class="hbc-label">CTA</div>
+            <div class="hbc-text">One clear next action per post: comment, save, DM, or visit, never more than one ask.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section id="ventures">
+    <div class="section-head">
+      <span class="eyebrow">Currently Building</span>
+      <h2>Parallel ventures</h2>
+    </div>
+    <div class="ventures">
+      <div class="venture">
+        <div class="stage">Live · US Facing Service</div>
+        <h3>American Resume Writers</h3>
+        <p>Resume writing service built for the US market: outreach, client acquisition, and delivery workflows.</p>
+      </div>
+      <div class="venture">
+        <div class="stage">Building · AI Product</div>
+        <h3>CallPilot</h3>
+        <p>AI calling agent targeting American SMBs, restaurants and dental practices. Built cold call scripts and pricing structure.</p>
+      </div>
+      <div class="venture">
+        <div class="stage">Live · Instagram Commerce</div>
+        <h3>FitCheck by Karachi</h3>
+        <p>Clothing resale page on Instagram: branding, COD logistics via TCS, and content led sales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <span class="eyebrow">Toolkit</span>
+      <h2>Skills &amp; tools</h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <h4>Marketing</h4>
+        <ul>
+          <li>Lead Generation</li>
+          <li>Social Media Strategy</li>
+          <li>Content Planning</li>
+          <li>Cold Outreach</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Tools</h4>
+        <ul>
+          <li>Canva</li>
+          <li>Meta Business Suite</li>
+          <li>LinkedIn</li>
+          <li>Google Analytics</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Foundations</h4>
+        <ul>
+          <li>Basic SEO</li>
+          <li>Campaign Reporting</li>
+          <li>Pipeline Tracking</li>
+        </ul>
+      </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact" class="no-border">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Let's talk about your next campaign.</h2>
+    <div class="contact-list">
+      <a class="contact-row" href="mailto:Nabeelimran068@gmail.com">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">Nabeelimran068@gmail.com</span>
+      </a>
+      <a class="contact-row" href="tel:03341235802">
+        <span class="contact-label">Phone / WhatsApp</span>
+        <span class="contact-value">0334 1235802</span>
+      </a>
+      <a class="contact-row" href="https://instagram.com/_nabeelimran" target="_blank" rel="noopener">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@_nabeelimran</span>
+      </a>
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Gulistan-e-Johar, Karachi</span>
+      </div>
+    </div>
+    <p class="foot-note">Syed Muhammad Nabeel · BBA Marketing</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
